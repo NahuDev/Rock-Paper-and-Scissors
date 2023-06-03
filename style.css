@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content:space-around;
+    margin: 50px;
+}
+
+.button-div{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+button{
+    height:70px;
+    width:70px;
+}
+.table{
+    align-items: center;
+}
