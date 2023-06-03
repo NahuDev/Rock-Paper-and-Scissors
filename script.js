@@ -39,10 +39,8 @@ function game(){
         computerSelection = getComputerChoice();
 
         playerSelection = prompt("Choose a hand").toLowerCase();
-        CorrectShape = playerSelection in ["rock","paper","scissors"];
-        while(!CorrectShape){
+        while(!["rock","paper","scissors"].includes(playerSelection)){
             playerSelection = prompt("Wrong wording please choose a hand").toLowerCase();
-            CorrectShape = playerSelection in ["rock","paper","scissors"];
         }
         roundResult  = playRound(playerSelection,computerSelection);
         if(roundResult === "draw"){
