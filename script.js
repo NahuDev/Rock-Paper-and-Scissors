@@ -1,3 +1,5 @@
+let gameHistory = [0,0,1];
+let beginningTable = document.querySelector("table").cloneNode(true);
 
 function getComputerChoice(){
     return ["rock","paper","scissors"][Math.floor(3*Math.random())]
@@ -32,24 +34,28 @@ function playRound( playerSelection , computerSelection ){
             }
         }
         
-function game(){
-    let playerSelection , computerSelection , roundResult , CorrectShape;
-    gameHistory = [];
-    for( let i = 0;i<5; i++ ){
-        computerSelection = getComputerChoice();
 
-        playerSelection = prompt("Choose a hand").toLowerCase();
-        while(!["rock","paper","scissors"].includes(playerSelection)){
-            playerSelection = prompt("Wrong wording please choose a hand").toLowerCase();
-        }
-        roundResult  = playRound(playerSelection,computerSelection);
-        if(roundResult === "draw"){
-            console.log("Draw");
-        }else{
-            console.log(roundResult + " Won");
-        }
-        gameHistory.push(roundResult);
+function play(playerSelection){
+    let computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection,computerSelection);
+    let table = document.querySelector("table");
+    gameHistory[2]++;
+    if(roundResult == "Player"){
+        gameHistory[0]++;
+    }else if(roundResult == "Computer"){
+        gameHistory[1]++;
+    }
+    let row = table.insertRow();
+    let last = gameHistory.length-1;
+    let rowElements = [playerSelection,computerSelection,roundResult,String(gameHistory[0]),String(gameHistory[1]),String(gameHistory[2])];
+        console.log(rowElements);
+    for(el of rowElements){
+        let cell = row.insertCell();
+        let text = document.createTextNode(el);
+        cell.appendChild(text);
     }
 }
 
-game()
+function restart(){
+    document.querySelector("table").replaceWith(beginningTable.cloneNode(true));
+}
