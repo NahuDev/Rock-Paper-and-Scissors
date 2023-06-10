@@ -10,11 +10,21 @@
 <body>
    <div class="container">
     <div class="button-div">
-      <button onclick="Paper()">Paper</button>
-      <button onclick="Rock()">Rock</button>
-      <button onclick="Scissors()">Scissors</button>
+      <button onclick="play('paper')">Paper</button>
+      <button onclick="play('rock')">Rock</button>
+      <button onclick="play('scissors')">Scissors</button>
+      <button onclick="restart()">Restart</button>
     </div>
-    <div class="table">Player | Comp | Winner | Player Wins | Comp Wins</div>
+    <table>
+      <tr>
+        <th>Player </th>
+        <th>Computer</th>
+        <th>Winner</th>
+        <th>Player Wins</th>
+        <th>Computer Wins</th>
+        <th>Round</th>
+      </tr>
+    </table>
    </div> 
 </body>
 <script src="script.js"></script>
