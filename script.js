@@ -58,4 +58,5 @@ function play(playerSelection){
 
 function restart(){
     document.querySelector("table").replaceWith(beginningTable.cloneNode(true));
+    gameHistory = [0,0,1];
 }
